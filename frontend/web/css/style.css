@@ -1,0 +1,130 @@
+footer {
+  background-color: #007ca0;
+  color: white;
+  padding: 15px;
+}
+.navbar {
+  border-radius: 0;
+  background-color: #fff;
+  border: 0;
+}
+
+.navbar-background {
+	height: 170px;
+	background: url('../images/flag.png');
+	-moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.navbar-menu {
+	background-color: #007ca0;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #ccc;
+	font-size: 16px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+	background-color: transparent;
+	color: #fff;
+	border-bottom: 3px solid yellow;
+	font-size: 16px;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+	color: #fff;
+}
+
+.sidebar-nav {
+  background-color: #f5f5f5;
+}
+.navbar .navbar-collapse {
+  padding-left: 0;
+}
+
+.left-sidebar {
+	float: none;
+    display: block;
+}
+.left-sidebar > li {
+	width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.text {
+  text-indent: 10px;
+  text-align: justify;
+}
+.text-right {
+  text-align: right;
+}
+.image-margin-bottom {
+  margin: 0 0 10px;
+}
+
+.carousel-inner .item img {
+  width:100%;
+}
+
+.title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #007ca0;
+  color : #fff;
+  border: 1px solid #e3e3e3;
+}
+.title h4 {
+  margin: 0;
+  padding: 10px 0;
+}
+.sess-date {
+  
+}
+.sess-title {
+  font-size: 16px;
+  text-align: jusify;
+}
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.flex > div {
+    margin-bottom: 20px;
+}
+.well-equal {
+    height: 100%;
+    margin-bottom: 0;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+}
+.carousel-control, .carousel-control:hover, .carousel-control:focus {
+    color: #007ca0;
+}
+.carousel-indicators {
+    bottom: -20px;
+}
+.carousel-indicators .active {
+    background-color: #007ca0;
+}
+.carousel-indicators li {
+    border: 1px solid #007ca0;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.text-secondary {
+    color: #aaa;
+}
