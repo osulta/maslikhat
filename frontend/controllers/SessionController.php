@@ -1,16 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 1
- * Date: 18.02.2018
- * Time: 21:22
- */
 
 namespace frontend\controllers;
 
 
-use common\models\Session;
-use common\models\SessionSearch;
+use frontend\models\Session;
 use yii\data\Pagination;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -19,8 +19,8 @@ use dosamigos\datepicker\DatePicker;
 
     <?= $form->field($model, 'content')->widget(CKEditor::className(),[
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
-            'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-            'inline' => false, //по умолчанию false
+            'preset' => 'full',
+            'inline' => false,
         ]),
     ]);?>
 

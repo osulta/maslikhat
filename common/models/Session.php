@@ -17,6 +17,7 @@ use Yii;
  */
 class Session extends \yii\db\ActiveRecord
 {
+    const SCENARIO_CREATE = 'create';
     /**
      * @inheritdoc
      */
@@ -37,7 +38,8 @@ class Session extends \yii\db\ActiveRecord
             [['created_at'], 'integer'],
             [['title', 'title_url'], 'string', 'max' => 500],
             [['preview_image'], 'string', 'max' => 255],
-            [['previewImage'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg'],
+            [['previewImage'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+            [['previewImage'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, jpeg', 'on' => self::SCENARIO_CREATE],
         ];
     }
 
@@ -48,13 +50,14 @@ class Session extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Заголовок',
+            'title' => 'Тақырып',
             'title_url' => 'Title Url',
-            'content' => 'Содержимое',
+            'content' => 'Мазмұны',
             'preview_image' => 'Preview Image',
-            'date' => 'Дата',
+            'date' => 'Өткізілген күні',
             'created_at' => 'Created At',
-            'previewImage' => 'Превью-картинка',
+            'previewImage' => 'Кішігірім сурет',
+            'type' => 'Жаңа сессия әлде сессия мәліметі ме?',
         ];
     }
 }

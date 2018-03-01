@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'maslikhat-admin-panel',
+    'name' => 'Басқару панелі',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -25,7 +26,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            'name' => 'maslikhat-backend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

@@ -13,6 +13,8 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 
+$sessionDropDown = $this->params['sessionDropDown'];
+
 $this->title = "Еңбекшіқазақ Аудандық Мәслихатының Ресми сайты.";
 ?>
 <?php $this->beginPage() ?>
@@ -49,7 +51,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group input-group">
-                    <input type="text" class="form-control" placeholder="Поиск..">
+                    <input type="text" class="form-control" placeholder="Іздеу">
                     <span class="input-group-btn">
             <button class="btn btn-default" type="button">
               <span class="glyphicon glyphicon-search"></span>
@@ -79,13 +81,13 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <span class="visible-xs navbar-brand">Меню</span>
+                        <span class="visible-xs navbar-brand">Мәзір</span>
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav left-sidebar" id="left-sidebar">
-                            <li><a href="#">Негізгі бет</a></li>
+                            <li><a href="/">Негізгі бет</a></li>
                             <li>
-                                <a href="#maslikhat" class="left-sidebar-a">Маслихат</a>
+                                <a href="#maslikhat" class="left-sidebar-a">Мәслихат</a>
                                 <div id="maslikhat" class="collapse" >
                                     <ul class="nav nav-list">
                                         <li><a href="">Жалпы мәліметтер</a></li>

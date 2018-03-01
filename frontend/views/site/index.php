@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
+
 $this->title = 'My Yii Application';
 ?>
 <div class="col-sm-6">
@@ -61,21 +63,15 @@ $this->title = 'My Yii Application';
         </div>
     </div>
     <div class="row flex">
+        <?php foreach ($news as $news) : ?>
         <div class="col-sm-6">
             <div class="well well-equal">
-                <p class="sess-date">22.12.2017 ж</p>
-                <img src="/images/sessiya/sess22.jpg" width="100%" alt="Сессия">
-                <h4 class="sess-title"><a href="#">ЕҢБЕКШІҚАЗАҚ АУДАНДЫҚ МӘСЛИХАТЫНЫҢ VI ШАҚЫРЫЛЫМЫНЫҢ КЕЗЕКТІ ХХІІ СЕССИЯСЫ</a></h4>
+                <p class="sess-date"><?= $news->date; ?></p>
+                <img src="/uploads/preview-images/<?= $news->preview_image; ?>" width="100%" alt="<?= $news->title; ?>">
+                <h4 class="sess-title"><a href="<?= Url::to(['session/view', 'id' => $news->id]); ?>"><?= $news->title; ?></a></h4>
             </div>
         </div>
-
-        <div class="col-sm-6">
-            <div class="well well-equal">
-                <p class="sess-date">27.12.2017 ж</p>
-                <img src="/images/sessiya/sess23.jpg" width="100%" alt="Сессия" />
-                <h4 class="sess-title"><a href="#">ЕҢБЕКШІҚАЗАҚ АУДАНДЫҚ МӘСЛИХАТЫНЫҢ VI ШАҚЫРЫЛЫМЫНЫҢ КЕЗЕКТЕН ТЫС ХХІІІ СЕССИЯСЫ</a></h4>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 

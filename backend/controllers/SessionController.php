@@ -66,6 +66,7 @@ class SessionController extends Controller
     public function actionCreate()
     {
         $model = new Session();
+        $model->scenario = $model::SCENARIO_CREATE;
 
         if ($model->load(Yii::$app->request->post())) {
             $model->previewImage = UploadedFile::getInstance($model, 'previewImage');
@@ -90,8 +91,13 @@ class SessionController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->previewImage = UploadedFile::getInstance($model, 'previewImage');
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return print_r($model->getOldAttribute('preview_image'));
+            }
         }
 
         return $this->render('update', [
