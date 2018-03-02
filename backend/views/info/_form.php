@@ -20,6 +20,9 @@ use yii\widgets\ActiveForm;
             'maslikhat' => 'Мәслихат',
             'public_council' => 'Қоғамдық кеңес',
             'session' => 'Сессия',
+            'commission' => 'Тұрақты комиссиялар',
+            'requests' => 'Сауалдар',
+            'nka' => 'НҚА',
     ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

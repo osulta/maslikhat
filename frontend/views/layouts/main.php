@@ -32,45 +32,52 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
 <body>
 <?php $this->beginBody() ?>
 
-<!--navbar -->
-<nav class="navbar navbar-inverse">
+<!--cotainer-->
+<div class="container">
+    <!--navbar -->
+    <nav class="navbar navbar-inverse">
 
-    <div class="container navbar-background">
-    </div>
-
-    <div class="container navbar-menu">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-background">
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
 
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group input-group">
-                    <input type="text" class="form-control" placeholder="Іздеу">
-                    <span class="input-group-btn">
+        <div class="navbar-menu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control" placeholder="Іздеу">
+                        <span class="input-group-btn">
             <button class="btn btn-default" type="button">
               <span class="glyphicon glyphicon-search"></span>
             </button>
           </span>
-                </div>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">ҚЗ</a></li>
-                <li><a href="#">РУ</a></li>
-            </ul>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">ҚЗ</a></li>
+                    <li><a href="#">РУ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--navbar ends -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="header-divider"></div>
         </div>
     </div>
-</nav>
-<!--navbar ends -->
 
-<!--cotainer-->
-<div class="container">
+
     <div class="row">
         <div class="col-sm-3">
             <div class="sidebar-nav">
@@ -94,15 +101,6 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                         <?php foreach ($menuItems['maslikhat'] as $item) : ?>
                                             <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
                                         <?php endforeach; ?>
-<!--                                        <li><a href="">Қызметі мен міндеттері</a></li>-->
-<!--                                        <li><a href="">Аппарат құрылымы</a></li>-->
-<!--                                        <li><a href="">Жұмыс регламентi</a></li>-->
-<!--                                        <li><a href="">Қызметтік міндеттер</a></li>-->
-<!--                                        <li><a href="">Басшылық</a></li>-->
-<!--                                        <li><a href="">Ереже</a></li>-->
-<!--                                        <li><a href="">Жұмыс жоспары</a></li>-->
-<!--                                        <li><a href="">Нормативтік-құқықтық база</a></li>-->
-<!--                                        <li><a href="">Аппарат тарихы</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -113,27 +111,78 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                         <?php foreach ($menuItems['public_council'] as $item) : ?>
                                             <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
                                         <?php endforeach; ?>
-<!--                                        <li><a href="">Ереже</a></li>-->
-<!--                                        <li><a href="">Жұмыс жоспары</a></li>-->
-<!--                                        <li><a href="">Кеңестің құрамы</a></li>-->
-<!--                                        <li><a href="">Комиссиялардың құрамы</a></li>-->
-<!--                                        <li><a href="">Кеңестің отырыстары</a></li>-->
-<!--                                        <li><a href="">Қызметінің мониторингі</a></li>-->
                                     </ul>
                                 </div>
                             </li>
                             <li class="active">
                                 <a href="#sessiya" class="left-sidebar-a">Сессия</a>
-                                <div class="collapse" id="sessiya"">
+                                <div class="collapse" id="sessiya">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['session'] as $item) : ?>
                                             <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
                                         <?php endforeach; ?>
-<!--                                        <li><a href="">Өткізу тәртібі</a></li>-->
-<!--                                        <li><a href="">Сессия төрағасы</a></li>-->
-<!--                                        <li><a href="">Мәселелер тізімі</a></li>-->
                                         <li><a href="<?= Url::to(['session/list']); ?>">Жүргізілген сессиясы</a></li>
                                     </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#commission" class="left-sidebar-a">Тұрақты комиссия</a>
+                                <div class="collapse" id="commission">
+                                    <ul class="nav nav-list">
+                                        <?php foreach ($menuItems['commission'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#requests" class="left-sidebar-a">Сауалдар</a>
+                                <div class="collapse" id="requests">
+                                    <ul class="nav nav-list">
+                                        <?php foreach ($menuItems['requests'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#nka" class="left-sidebar-a">НҚА</a>
+                                <div class="collapse" id="nka">
+<!--                                    <ul class="nav nav-list">-->
+<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
+<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </ul>-->
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#nka" class="left-sidebar-a">Шешімдер</a>
+                                <div class="collapse" id="nka">
+<!--                                    <ul class="nav nav-list">-->
+<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
+<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </ul>-->
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#nka" class="left-sidebar-a">Мемлекеттік рәміздер</a>
+                                <div class="collapse" id="nka">
+<!--                                    <ul class="nav nav-list">-->
+<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
+<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </ul>-->
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#nka" class="left-sidebar-a">Мемлекеттік қызмет</a>
+                                <div class="collapse" id="nka">
+<!--                                    <ul class="nav nav-list">-->
+<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
+<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
+<!--                                        --><?php //endforeach; ?>
+<!--                                    </ul>-->
                                 </div>
                             </li>
                     <?php foreach ($menuItems['main'] as $item) : ?>

@@ -12,10 +12,10 @@ footer {
 .navbar-background {
 	height: 170px;
 	background: url('../images/flag.png');
+    background-size: 100%;
 	-moz-background-size: 100%;
     -webkit-background-size: 100%;
     -o-background-size: 100%;
-    background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -36,6 +36,15 @@ footer {
 }
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
 	color: #fff;
+}
+.header-divider {
+    background-image: url('../images/bg-header-divider.png');
+    background-color: #0b93d5;
+    background-repeat: repeat-x;
+    height: 30px;
+}
+.navbar {
+    margin-bottom: 0;
 }
 
 .sidebar-nav {
