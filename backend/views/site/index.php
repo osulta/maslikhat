@@ -28,10 +28,10 @@ $this->title = 'Еңбекшіқазақ Аудандық Мәслихаты. Б
             </div>
             <div class="col-lg-6">
                 <h2>Мәлімет</h2>
-                <p>Мәліметтердің тізімін көру, мәлімет қосу және өзгерту.</p>
+                <p>Мәлімет тізімін көру, мәлімет қосу және өзгерту.</p>
                 <p>
-                    <a class="btn btn-default" href="<?= Url::to(['info/list']); ?>">Мәлімет тізімі</a>
-                    <a class="btn btn-primary" href="<?= Url::to(['info/create']); ?>">Жаңа мәліметі қосу</a>
+                    <a class="btn btn-default" href="<?= Url::to(['info/index']); ?>">Мәлімет тізімі</a>
+                    <a class="btn btn-primary" href="<?= Url::to(['info/create']); ?>">Жаңа мәлімет қосу</a>
                 </p>
             </div>
         </div>

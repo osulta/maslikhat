@@ -1,22 +1,22 @@
 <?php
 
-use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\SessionSearch */
+/* @var $searchModel common\models\InfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Сессия тізімі';
+$this->title = 'Infos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="session-index">
+<div class="info-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-<!--    --><?php //echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Жаңа сессияны қосу', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,10 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'date',
+            'parent',
+            //'created_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
 </div>

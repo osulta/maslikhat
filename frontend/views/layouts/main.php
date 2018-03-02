@@ -13,9 +13,10 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 
-$sessionDropDown = $this->params['sessionDropDown'];
+$menuItems = $this->params['menuItems'];
 
 $this->title = "Еңбекшіқазақ Аудандық Мәслихатының Ресми сайты.";
+//print("<pre>".print_r($menuItems,true)."</pre>");
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -90,16 +91,18 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <a href="#maslikhat" class="left-sidebar-a">Мәслихат</a>
                                 <div id="maslikhat" class="collapse" >
                                     <ul class="nav nav-list">
-                                        <li><a href="">Жалпы мәліметтер</a></li>
-                                        <li><a href="">Қызметі мен міндеттері</a></li>
-                                        <li><a href="">Аппарат құрылымы</a></li>
-                                        <li><a href="">Жұмыс регламентi</a></li>
-                                        <li><a href="">Қызметтік міндеттер</a></li>
-                                        <li><a href="">Басшылық</a></li>
-                                        <li><a href="">Ереже</a></li>
-                                        <li><a href="">Жұмыс жоспары</a></li>
-                                        <li><a href="">Нормативтік-құқықтық база</a></li>
-                                        <li><a href="">Аппарат тарихы</a></li>
+                                        <?php foreach ($menuItems['maslikhat'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                        <?php endforeach; ?>
+<!--                                        <li><a href="">Қызметі мен міндеттері</a></li>-->
+<!--                                        <li><a href="">Аппарат құрылымы</a></li>-->
+<!--                                        <li><a href="">Жұмыс регламентi</a></li>-->
+<!--                                        <li><a href="">Қызметтік міндеттер</a></li>-->
+<!--                                        <li><a href="">Басшылық</a></li>-->
+<!--                                        <li><a href="">Ереже</a></li>-->
+<!--                                        <li><a href="">Жұмыс жоспары</a></li>-->
+<!--                                        <li><a href="">Нормативтік-құқықтық база</a></li>-->
+<!--                                        <li><a href="">Аппарат тарихы</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -107,12 +110,15 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <a href="#kogamdyk-kenes" class="left-sidebar-a">Қоғамдық кеңес</a>
                                 <div id="kogamdyk-kenes" class="collapse">
                                     <ul class="nav nav-list">
-                                        <li><a href="">Ереже</a></li>
-                                        <li><a href="">Жұмыс жоспары</a></li>
-                                        <li><a href="">Кеңестің құрамы</a></li>
-                                        <li><a href="">Комиссиялардың құрамы</a></li>
-                                        <li><a href="">Кеңестің отырыстары</a></li>
-                                        <li><a href="">Қызметінің мониторингі</a></li>
+                                        <?php foreach ($menuItems['public_council'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                        <?php endforeach; ?>
+<!--                                        <li><a href="">Ереже</a></li>-->
+<!--                                        <li><a href="">Жұмыс жоспары</a></li>-->
+<!--                                        <li><a href="">Кеңестің құрамы</a></li>-->
+<!--                                        <li><a href="">Комиссиялардың құрамы</a></li>-->
+<!--                                        <li><a href="">Кеңестің отырыстары</a></li>-->
+<!--                                        <li><a href="">Қызметінің мониторингі</a></li>-->
                                     </ul>
                                 </div>
                             </li>
@@ -120,20 +126,19 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <a href="#sessiya" class="left-sidebar-a">Сессия</a>
                                 <div class="collapse" id="sessiya"">
                                     <ul class="nav nav-list">
-                                        <li><a href="">Өткізу тәртібі</a></li>
-                                        <li><a href="">Сессия төрағасы</a></li>
-                                        <li><a href="">Мәселелер тізімі</a></li>
+                                        <?php foreach ($menuItems['session'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                        <?php endforeach; ?>
+<!--                                        <li><a href="">Өткізу тәртібі</a></li>-->
+<!--                                        <li><a href="">Сессия төрағасы</a></li>-->
+<!--                                        <li><a href="">Мәселелер тізімі</a></li>-->
                                         <li><a href="<?= Url::to(['session/list']); ?>">Жүргізілген сессиясы</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="#">Комиссия</a></li>
-                            <li><a href="#">Сауалдар</a></li>
-                            <li><a href="#">Қоғамдық кеңес</a></li>
-                            <li><a href="#">НКА</a></li>
-                            <li><a href="#">Шешімдер</a></li>
-                            <li><a href="#">Мемлекеттік рәміздер</a></li>
-                            <li><a href="#">Мемлекеттік қызмет</a></li>
+                    <?php foreach ($menuItems['main'] as $item) : ?>
+                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                    <?php endforeach; ?>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

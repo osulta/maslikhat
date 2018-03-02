@@ -4,22 +4,22 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Session */
+/* @var $model common\models\Info */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Сессия тізімі', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Infos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="session-view">
+<div class="info-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Өзгерту', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Кетіру', ['delete', 'id' => $model->id], [
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Сессия жойылады!',
+                'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'title_url:url',
             'content:ntext',
-            'preview_image',
             'date',
             'created_at',
         ],
