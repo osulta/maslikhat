@@ -120,7 +120,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                     </ul>
                                 </div>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#sessiya" class="left-sidebar-a">Сессия</a>
                                 <div class="collapse" id="sessiya">
                                     <ul class="nav nav-list">
