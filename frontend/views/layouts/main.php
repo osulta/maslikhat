@@ -38,6 +38,12 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
     <nav class="navbar navbar-inverse">
 
         <div class="navbar-background">
+            <div class="gerb-block">
+                <img src="images/gerb.png" alt="">
+            </div>
+            <div class="navbar-title-block">
+                <h1 class="navbar-title">Еңбекшіқазақ аудандық мәслихатының ресми сайты</h1>
+            </div>
         </div>
 
         <div class="navbar-menu">
