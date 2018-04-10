@@ -39,7 +39,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
 
         <div class="navbar-background">
             <div class="gerb-block">
-                <img src="images/gerb.png" alt="">
+                <img src="../images/gerb.png" alt="">
             </div>
             <div class="navbar-title-block">
                 <h1 class="navbar-title">Еңбекшіқазақ аудандық мәслихатының ресми сайты</h1>
@@ -69,8 +69,8 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">ҚЗ</a></li>
-                    <li><a href="#">РУ</a></li>
+                    <li class="<? echo  $_SESSION['language'] == 'kz' ? "active" : ''?>"><a href="<?= Url::to(['language/change-language', 'language' => 'kz']); ?>">ҚЗ</a></li>
+                    <li class="<? echo  $_SESSION['language'] == 'ru' ? "active" : ''?>"><a href="<?= Url::to(['language/change-language', 'language' => 'ru']); ?>">РУ</a></li>
                 </ul>
             </div>
         </div>
@@ -163,16 +163,6 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                             </li>
                             <li>
                                 <a href="#nka" class="left-sidebar-a">Шешімдер</a>
-                                <div class="collapse" id="nka">
-<!--                                    <ul class="nav nav-list">-->
-<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
-<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </ul>-->
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#nka" class="left-sidebar-a">Мемлекеттік рәміздер</a>
                                 <div class="collapse" id="nka">
 <!--                                    <ul class="nav nav-list">-->
 <!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
