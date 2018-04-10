@@ -6,6 +6,9 @@ use yii\web\View;
 use common\models\Info;
 
 Event::on(View::className(), View::EVENT_BEFORE_RENDER, function() {
+
+    $_SESSION['language'] = isset($_SESSION['language']) ? $_SESSION['language'] : 'kz';
+
     $menuItems = Info::find()
         ->orderBy('parent')
         ->asArray()
