@@ -152,7 +152,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a">НҚА</a>
+                                <a href="#nka" class="left-sidebar-a">Мәслихат депутаттары</a>
                                 <div class="collapse" id="nka">
 <!--                                    <ul class="nav nav-list">-->
 <!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
