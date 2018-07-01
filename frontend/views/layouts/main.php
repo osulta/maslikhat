@@ -42,7 +42,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                 <img src="../images/gerb.png" alt="">
             </div>
             <div class="navbar-title-block">
-                <h1 class="navbar-title">Еңбекшіқазақ аудандық мәслихатының ресми сайты</h1>
+                <h1 class="navbar-title"><?= Yii::t('app', 'Еңбекшіқазақ аудандық мәслихатының ресми сайты'); ?></h1>
             </div>
         </div>
 
@@ -60,7 +60,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group input-group">
-                        <input type="text" class="form-control" placeholder="Іздеу">
+                        <input type="text" class="form-control" placeholder="<?= Yii::t('app', 'Іздеу'); ?>">
                         <span class="input-group-btn">
             <button class="btn btn-default" type="button">
               <span class="glyphicon glyphicon-search"></span>
@@ -69,8 +69,8 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="<? echo  $_SESSION['language'] == 'kz' ? "active" : ''?>"><a href="<?= Url::to(['language/change-language', 'language' => 'kz']); ?>">ҚЗ</a></li>
-                    <li class="<? echo  $_SESSION['language'] == 'ru' ? "active" : ''?>"><a href="<?= Url::to(['language/change-language', 'language' => 'ru']); ?>">РУ</a></li>
+                    <li class="<?=  Yii::$app->language == 'kz-KZ' ? 'active' : '' ?>"><a href="<?=  Url::to(['language/change-language', 'language' => 'kz-KZ']); ?>">ҚЗ</a></li>
+                    <li class="<?= Yii::$app->language == 'ru-RU' ? 'active' : '' ?>"><a href="<?= Url::to(['language/change-language', 'language' => 'ru-RU']); ?>">РУ</a></li>
                 </ul>
             </div>
         </div>
@@ -95,13 +95,13 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <span class="visible-xs navbar-brand">Мәзір</span>
+                        <span class="visible-xs navbar-brand"><?= Yii::t('app', 'Мәзір'); ?></span>
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav left-sidebar" id="left-sidebar">
-                            <li><a href="/">Негізгі бет</a></li>
+                            <li><a href="/"><?= Yii::t('app', 'Негізгі бет'); ?></a></li>
                             <li>
-                                <a href="#maslikhat" class="left-sidebar-a">Мәслихат</a>
+                                <a href="#maslikhat" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат'); ?></a>
                                 <div id="maslikhat" class="collapse" >
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['maslikhat'] as $item) : ?>
@@ -111,7 +111,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#kogamdyk-kenes" class="left-sidebar-a">Қоғамдық кеңес</a>
+                                <a href="#kogamdyk-kenes" class="left-sidebar-a"><?= Yii::t('app', 'Қоғамдық кеңес'); ?></a>
                                 <div id="kogamdyk-kenes" class="collapse">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['public_council'] as $item) : ?>
@@ -121,18 +121,18 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#sessiya" class="left-sidebar-a">Сессия</a>
+                                <a href="#sessiya" class="left-sidebar-a"><?= Yii::t('app', 'Сессия'); ?></a>
                                 <div class="collapse" id="sessiya">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['session'] as $item) : ?>
                                             <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
                                         <?php endforeach; ?>
-                                        <li><a href="<?= Url::to(['session/list']); ?>">Жүргізілген сессиясы</a></li>
+                                        <li><a href="<?= Url::to(['session/list']); ?>"><?= Yii::t('app', 'Жүргізілген сессиясы'); ?></a></li>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href="#commission" class="left-sidebar-a">Тұрақты комиссия</a>
+                                <a href="#commission" class="left-sidebar-a"><?= Yii::t('app', 'Тұрақты комиссия'); ?></a>
                                 <div class="collapse" id="commission">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['commission'] as $item) : ?>
@@ -142,7 +142,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#requests" class="left-sidebar-a">Сауалдар</a>
+                                <a href="#requests" class="left-sidebar-a"><?= Yii::t('app', 'Сауалдар'); ?></a>
                                 <div class="collapse" id="requests">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['requests'] as $item) : ?>
@@ -152,7 +152,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a">Мәслихат депутаттары</a>
+                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат депутаттары'); ?></a>
                                 <div class="collapse" id="nka">
 <!--                                    <ul class="nav nav-list">-->
 <!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
@@ -162,7 +162,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a">Шешімдер</a>
+                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Шешімдер'); ?></a>
                                 <div class="collapse" id="nka">
 <!--                                    <ul class="nav nav-list">-->
 <!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
@@ -172,7 +172,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a">Мемлекеттік қызмет</a>
+                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Мемлекеттік қызмет'); ?></a>
                                 <div class="collapse" id="nka">
 <!--                                    <ul class="nav nav-list">-->
 <!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>

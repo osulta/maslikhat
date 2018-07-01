@@ -9,7 +9,13 @@ $params = array_merge(
 return [
     'id' => 'maslikhat-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'frontend\components\LanguageSelector',
+            'supportedLanguages' => ['kz-KZ', 'ru-RU'],
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -44,7 +50,21 @@ return [
                 '<action>' => 'site/<action>',
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app'       => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
+                ],
+            ],
+        ],
     ],
-    'language' => 'kz',
+    'sourceLanguage' => 'kz-KZ',
+    'language' => 'kz-KZ',
     'params' => $params,
 ];
