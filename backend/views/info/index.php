@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use Yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\InfoSearch */
@@ -17,16 +18,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Перевод', Url::to(['info-i18n/create']), ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+//            ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'title',
+            'title_kz',
             'parent',
             //'created_at',
 

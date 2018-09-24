@@ -14,6 +14,9 @@ Event::on(View::className(), View::EVENT_BEFORE_RENDER, function() {
         ->asArray()
         ->all();
     $menuItems = ArrayHelper::index($menuItems, NULL, 'parent');
-
     Yii::$app->view->params['menuItems'] = $menuItems;
+
+
+    $language = substr(Yii::$app->language, 0, 2);
+    Yii::$app->view->params['language'] = $language;
 });

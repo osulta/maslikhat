@@ -160,3 +160,8 @@ footer {
 .text-secondary {
     color: #aaa;
 }
+
+/* index */
+.news-feed-block {
+    flex-wrap: wrap;
+}

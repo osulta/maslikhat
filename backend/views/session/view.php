@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Session */
 
-$this->title = $model->title;
+$this->title = $model->title_kz;
 $this->params['breadcrumbs'][] = ['label' => 'Сессия тізімі', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -29,9 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'title_url:url',
-            'content:ntext',
+            'title_kz',
+            'title_ru',
+            'content_kz:ntext',
+            'content_ru:ntext',
             'preview_image',
             'date',
             'created_at',

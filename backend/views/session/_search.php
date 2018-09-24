@@ -17,11 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'title_kz') ?>
 
-    <?= $form->field($model, 'title_url') ?>
+    <?= $form->field($model, 'title_url_kz') ?>
 
-    <?= $form->field($model, 'content') ?>
+    <?= $form->field($model, 'content_kz') ?>
 
     <?= $form->field($model, 'preview_image') ?>
 

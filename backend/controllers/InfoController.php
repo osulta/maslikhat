@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\InfoI18n;
 use Yii;
 use backend\models\Info;
 use common\models\InfoSearch;

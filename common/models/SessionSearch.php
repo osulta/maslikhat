@@ -19,7 +19,7 @@ class SessionSearch extends Session
     {
         return [
             [['id', 'created_at'], 'integer'],
-            [['title', 'title_url', 'content', 'preview_image', 'date'], 'safe'],
+            [['title_kz', 'title_url_kz', 'content_kz', 'preview_image', 'date'], 'safe'],
         ];
     }
 
@@ -64,9 +64,9 @@ class SessionSearch extends Session
             'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'title_url', $this->title_url])
-            ->andFilterWhere(['like', 'content', $this->content])
+        $query->andFilterWhere(['like', 'title', $this->title_kz])
+            ->andFilterWhere(['like', 'title_url', $this->title_url_kz])
+            ->andFilterWhere(['like', 'content', $this->content_kz])
             ->andFilterWhere(['like', 'preview_image', $this->preview_image]);
 
         return $dataProvider;

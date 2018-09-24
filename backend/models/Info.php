@@ -10,13 +10,15 @@ namespace backend\models;
 
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 class Info extends \common\models\Info
 {
     public function beforeValidate()
     {
         if (parent::beforeValidate()) {
-            $this->title_url = Yii::$app->myHelper->transliterateToLatin($this->title);
+            $this->title_url_kz = Yii::$app->myHelper->transliterateToLatin($this->title_kz);
+            $this->title_url_ru = Yii::$app->myHelper->transliterateToLatin($this->title_ru);
         }
         return parent::beforeValidate();
     }

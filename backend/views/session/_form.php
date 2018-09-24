@@ -15,9 +15,18 @@ use dosamigos\datepicker\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title_kz')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
+    <?= $form->field($model, 'content_kz')->widget(CKEditor::className(),[
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'preset' => 'full',
+            'inline' => false,
+        ]),
+    ]);?>
+
+    <?= $form->field($model, 'title_ru')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'content_ru')->widget(CKEditor::className(),[
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
             'preset' => 'full',
             'inline' => false,

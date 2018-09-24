@@ -5,6 +5,7 @@
 use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
+$l = $this->params['language'];
 ?>
 <div class="col-sm-6">
     <div class="row">
@@ -62,13 +63,13 @@ $this->title = 'My Yii Application';
             </div>
         </div>
     </div>
-    <div class="row flex">
+    <div class="row flex news-feed-block">
         <?php foreach ($news as $news) : ?>
         <div class="col-sm-6">
             <div class="well well-equal">
                 <p class="sess-date"><?= $news->date; ?></p>
-                <img src="/uploads/preview-images/<?= $news->preview_image; ?>" width="100%" alt="<?= $news->title; ?>">
-                <h4 class="sess-title"><a href="<?= Url::to(['session/view', 'id' => $news->id]); ?>"><?= $news->title; ?></a></h4>
+                <img src="/uploads/preview-images/<?= $news->preview_image; ?>" width="100%" alt="<?= $news->{'title_' . $l}; ?>">
+                <h4 class="sess-title"><a href="<?= Url::to(['session/view', 'id' => $news->id]); ?>"><?= $news->{'title_' . $l}; ?></a></h4>
             </div>
         </div>
         <?php endforeach; ?>

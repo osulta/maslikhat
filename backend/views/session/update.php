@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = 'Сессияны өзгерту';
 $this->params['breadcrumbs'][] = ['label' => 'Сессия тізімі', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title_kz, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Өзгерту';
 ?>
 <div class="session-update">

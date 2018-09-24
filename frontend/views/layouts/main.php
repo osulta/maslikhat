@@ -14,9 +14,9 @@ use common\widgets\Alert;
 AppAsset::register($this);
 
 $menuItems = $this->params['menuItems'];
+$l = $this->params['language'];
 
 $this->title = "Еңбекшіқазақ Аудандық Мәслихатының Ресми сайты.";
-//print("<pre>".print_r($menuItems,true)."</pre>");
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -69,7 +69,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                     </div>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="<?=  Yii::$app->language == 'kz-KZ' ? 'active' : '' ?>"><a href="<?=  Url::to(['language/change-language', 'language' => 'kz-KZ']); ?>">ҚЗ</a></li>
+                    <li class="<?= Yii::$app->language == 'kz-KZ' ? 'active' : '' ?>"><a href="<?=  Url::to(['language/change-language', 'language' => 'kz-KZ']); ?>">ҚЗ</a></li>
                     <li class="<?= Yii::$app->language == 'ru-RU' ? 'active' : '' ?>"><a href="<?= Url::to(['language/change-language', 'language' => 'ru-RU']); ?>">РУ</a></li>
                 </ul>
             </div>
@@ -105,7 +105,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <div id="maslikhat" class="collapse" >
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['maslikhat'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -115,7 +115,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <div id="kogamdyk-kenes" class="collapse">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['public_council'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -125,7 +125,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <div class="collapse" id="sessiya">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['session'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                                         <?php endforeach; ?>
                                         <li><a href="<?= Url::to(['session/list']); ?>"><?= Yii::t('app', 'Жүргізілген сессиясы'); ?></a></li>
                                     </ul>
@@ -136,7 +136,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <div class="collapse" id="commission">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['commission'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -146,7 +146,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 <div class="collapse" id="requests">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['requests'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -182,7 +182,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                     <?php foreach ($menuItems['main'] as $item) : ?>
-                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title']; ?></a></li>
+                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                     <?php endforeach; ?>
                         </ul>
                     </div><!--/.nav-collapse -->

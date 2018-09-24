@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Info;
+use backend\models\Info;
 
 /**
  * InfoSearch represents the model behind the search form of `common\models\Info`.
@@ -19,7 +19,7 @@ class InfoSearch extends Info
     {
         return [
             [['id', 'created_at'], 'integer'],
-            [['title', 'title_url', 'content', 'date'], 'safe'],
+            [['title_kz', 'title_url_kz', 'content_kz', 'date'], 'safe'],
         ];
     }
 
@@ -64,9 +64,9 @@ class InfoSearch extends Info
             'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'title_url', $this->title_url])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'title_kz', $this->title_kz])
+            ->andFilterWhere(['like', 'title_url_kz', $this->title_url_kz])
+            ->andFilterWhere(['like', 'content_kz', $this->content_kz]);
 
         return $dataProvider;
     }
