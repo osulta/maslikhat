@@ -11,7 +11,6 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\web\Cookie;
 
 class LanguageController extends Controller
 {
@@ -21,12 +20,12 @@ class LanguageController extends Controller
         $language = Yii::$app->request->get('language');
         Yii::$app->language = $language;
 
-        $languageCookie = new Cookie([
-            'name' => 'language',
-            'value' => $language,
-            'expire' => time() + 60 * 60 * 24 * 30, // 30 days
-        ]);
-        Yii::$app->response->cookies->add($languageCookie);
+        $session = Yii::$app->session;
+        $session->set('language', $language);
+
+        if (Yii::$app->request->referrer == 'http://enbekshikazak-maslikhat.kz/') {
+            return $this->redirect('/site/index');
+        }
 
         return $this->redirect(Yii::$app->request->referrer);
     }

@@ -99,7 +99,7 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav left-sidebar" id="left-sidebar">
-                            <li><a href="/"><?= Yii::t('app', 'Негізгі бет'); ?></a></li>
+                            <li><a href="/site/index"><?= Yii::t('app', 'Негізгі бет'); ?></a></li>
                             <li>
                                 <a href="#maslikhat" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат'); ?></a>
                                 <div id="maslikhat" class="collapse" >
