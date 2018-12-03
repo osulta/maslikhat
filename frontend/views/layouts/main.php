@@ -152,33 +152,39 @@ $this->title = "Еңбекшіқазақ Аудандық Мәслихатыны
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат депутаттары'); ?></a>
-                                <div class="collapse" id="nka">
-<!--                                    <ul class="nav nav-list">-->
-<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
-<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </ul>-->
+                                <a href="#deputies" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат депутаттары'); ?></a>
+                                <div class="collapse" id="deputies">
+                                    <ul class="nav nav-list">
+                                        <?php if (isset($menuItems['deputies'])) { ?>
+                                        <?php foreach ($menuItems['deputies'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
+                                        <?php endforeach; ?>
+                                        <?php } ?>
+                                    </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Шешімдер'); ?></a>
-                                <div class="collapse" id="nka">
-<!--                                    <ul class="nav nav-list">-->
-<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
-<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </ul>-->
+                                <a href="#decisions" class="left-sidebar-a"><?= Yii::t('app', 'Шешімдер'); ?></a>
+                                <div class="collapse" id="desicions">
+                                    <ul class="nav nav-list">
+                                        <?php if (isset($menuItems['decisions'])) { ?>
+                                        <?php foreach ($menuItems['desicions'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
+                                        <?php endforeach; ?>
+                                        <?php } ?>
+                                    </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href="#nka" class="left-sidebar-a"><?= Yii::t('app', 'Мемлекеттік қызмет'); ?></a>
-                                <div class="collapse" id="nka">
-<!--                                    <ul class="nav nav-list">-->
-<!--                                        --><?php //foreach ($menuItems['nka'] as $item) : ?>
-<!--                                            <li><a href="--><?//= Url::to(['info/view', 'id' => $item['id']]); ?><!--">--><?//= $item['title']; ?><!--</a></li>-->
-<!--                                        --><?php //endforeach; ?>
-<!--                                    </ul>-->
+                                <a href="#services" class="left-sidebar-a"><?= Yii::t('app', 'Мемлекеттік қызмет'); ?></a>
+                                <div class="collapse" id="services">
+                                    <ul class="nav nav-list">
+                                        <?php if (isset($menuItems['services'])) { ?>
+                                        <?php foreach ($menuItems['services'] as $item) : ?>
+                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
+                                        <?php endforeach; ?>
+                                        <?php } ?>
+                                    </ul>
                                 </div>
                             </li>
                     <?php foreach ($menuItems['main'] as $item) : ?>

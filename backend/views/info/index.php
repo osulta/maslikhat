@@ -18,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Перевод', Url::to(['info-i18n/create']), ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

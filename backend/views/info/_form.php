@@ -23,6 +23,9 @@ use yii\widgets\ActiveForm;
             'commission' => 'Тұрақты комиссиялар',
             'requests' => 'Сауалдар',
             'nka' => 'НҚА',
+            'deputies' => 'Мәслихат депутаттары',
+            'decisions' => 'Шешімдер',
+            'services' => 'Мемлекеттік қызмет',
     ]); ?>
 
     <?= $form->field($model, 'title_kz')->textInput(['maxlength' => true]) ?>
