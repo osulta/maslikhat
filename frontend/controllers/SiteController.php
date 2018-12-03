@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use frontend\models\Session;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -36,6 +37,15 @@ class SiteController extends Controller
         return $this->render('index', [
             'news' => $lastNews,
         ]);
+    }
+
+    public function actionDownloadFile()
+    {
+        $fileName = Yii::$app->request->getQueryParam('filename');
+        $filePath = Yii::getAlias('@backend') . '/web/uploads/images/' . $fileName;
+        if (file_exists($filePath)) {
+            return Yii::$app->response->sendFile($filePath);
+        }
     }
 
 }
