@@ -34,6 +34,13 @@ $this->title = 'Еңбекшіқазақ Аудандық Мәслихаты. Б
                     <a class="btn btn-primary" href="<?= Url::to(['info/create']); ?>">Жаңа мәлімет қосу</a>
                 </p>
             </div>
+            <div class="col-lg-6">
+                <h2>Настройки</h2>
+                <p>Бегущая строка, слайдер на главной</p>
+                <p>
+                    <a class="btn btn-default" href="<?= Url::to(['settings/index']); ?>">Настройки</a>
+                </p>
+            </div>
         </div>
 
     </div>

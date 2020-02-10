@@ -8,7 +8,7 @@ use Yii\helpers\Url;
 /* @var $searchModel common\models\InfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Infos';
+$this->title = 'Мәліметтер тізімі';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="info-index">
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Info', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Мәлімет қосу', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

@@ -16,16 +16,18 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'parent')->dropDownList([
-            'main' => 'Негізгі меню',
-            'maslikhat' => 'Мәслихат',
-            'public_council' => 'Қоғамдық кеңес',
-            'session' => 'Сессия',
-            'commission' => 'Тұрақты комиссиялар',
-            'requests' => 'Сауалдар',
-            'nka' => 'НҚА',
-            'deputies' => 'Мәслихат депутаттары',
-            'decisions' => 'Шешімдер',
-            'services' => 'Мемлекеттік қызмет',
+        'main' => 'Негізгі меню',
+        'maslikhat' => 'Мәслихат',
+        'public_council' => 'Қоғамдық кеңес',
+        'session' => 'Сессия',
+        'commission' => 'Тұрақты комиссиялар',
+        'requests' => 'Сауалдар',
+        'nka' => 'НҚА',
+        'deputies' => 'Мәслихат депутаттары',
+        'decisions' => 'Шешімдер',
+        'services' => 'Мемлекеттік қызмет',
+        'budget' => 'Бюджет',
+        'election' => 'Сайлау',
     ]); ?>
 
     <?= $form->field($model, 'title_kz')->textInput(['maxlength' => true]) ?>

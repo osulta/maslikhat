@@ -2,15 +2,14 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
-/* @var $model common\models\Info */
+/* @var $model common\models\Settings */
 
-$this->title = 'Мәлімет';
-$this->params['breadcrumbs'][] = ['label' => 'Мәліметтер тізімі', 'url' => ['index']];
+$this->title = 'Создать';
+$this->params['breadcrumbs'][] = ['label' => 'Настройки', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="info-create">
+<div class="settings-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

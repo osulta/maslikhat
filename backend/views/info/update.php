@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\Info */
 
 $this->title = '"' . $model->title_kz . '" бетін өзгерту.';
-$this->params['breadcrumbs'][] = ['label' => 'Infos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Мәліметтер тізімі', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title_kz, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Өзгерту';
 ?>

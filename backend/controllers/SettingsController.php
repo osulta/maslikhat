@@ -2,28 +2,27 @@
 
 namespace backend\controllers;
 
-use backend\models\InfoI18n;
 use Yii;
-use backend\models\Info;
-use common\models\InfoSearch;
+use common\models\Settings;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * InfoController implements the CRUD actions for Info model.
+ * SettingsController implements the CRUD actions for Settings model.
  */
-class InfoController extends Controller
+class SettingsController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -32,22 +31,22 @@ class InfoController extends Controller
     }
 
     /**
-     * Lists all Info models.
+     * Lists all Settings models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new InfoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Settings::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Info model.
+     * Displays a single Settings model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,13 +59,13 @@ class InfoController extends Controller
     }
 
     /**
-     * Creates a new Info model.
+     * Creates a new Settings model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Info();
+        $model = new Settings();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -78,7 +77,7 @@ class InfoController extends Controller
     }
 
     /**
-     * Updates an existing Info model.
+     * Updates an existing Settings model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -98,7 +97,7 @@ class InfoController extends Controller
     }
 
     /**
-     * Deletes an existing Info model.
+     * Deletes an existing Settings model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -112,15 +111,15 @@ class InfoController extends Controller
     }
 
     /**
-     * Finds the Info model based on its primary key value.
+     * Finds the Settings model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Info the loaded model
+     * @return Settings the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Info::findOne($id)) !== null) {
+        if (($model = Settings::findOne($id)) !== null) {
             return $model;
         }
 
