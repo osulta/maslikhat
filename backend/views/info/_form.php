@@ -28,6 +28,7 @@ use yii\widgets\ActiveForm;
         'services' => 'Мемлекеттік қызмет',
         'budget' => 'Бюджет',
         'election' => 'Сайлау',
+        'list' => 'Тізім'
     ]); ?>
 
     <?= $form->field($model, 'title_kz')->textInput(['maxlength' => true]) ?>

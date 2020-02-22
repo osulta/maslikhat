@@ -161,18 +161,6 @@ $l = $this->params['language'];
                                 </div>
                             </li>
                             <li>
-                                <a href="#deputies" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат депутаттары'); ?></a>
-                                <div class="collapse" id="deputies">
-                                    <ul class="nav nav-list">
-                                        <?php if (isset($menuItems['deputies'])) { ?>
-                                        <?php foreach ($menuItems['deputies'] as $item) : ?>
-                                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
-                                        <?php endforeach; ?>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
                                 <a href="#decisions" class="left-sidebar-a"><?= Yii::t('app', 'Шешімдер'); ?></a>
                                 <div class="collapse" id="decisions">
                                     <ul class="nav nav-list">
