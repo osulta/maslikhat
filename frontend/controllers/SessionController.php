@@ -24,7 +24,7 @@ class SessionController extends Controller
 
     public function actionList()
     {
-        $query = Session::find();
+        $query = Session::find()->where(['type' => null]);
         $countQuery = clone $query;
         $pagination = new Pagination([
             'forcePageParam' => false,

@@ -16,6 +16,7 @@ use Yii;
  * @property string $content_ru
  * @property string $preview_image
  * @property string $date
+ * @property string $type
  * @property int $created_at
  */
 class Session extends \yii\db\ActiveRecord
@@ -36,7 +37,7 @@ class Session extends \yii\db\ActiveRecord
     {
         return [
             [['title_kz', 'title_url_kz'], 'required'],
-            [['content_kz', 'content_ru'], 'string'],
+            [['content_kz', 'content_ru', 'type'], 'string'],
             [['date'], 'safe'],
             [['created_at'], 'integer'],
             [['title_kz', 'title_ru', 'title_url_kz', 'title_url_ru'], 'string', 'max' => 500],

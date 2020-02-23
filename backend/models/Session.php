@@ -24,7 +24,7 @@ class Session extends \common\models\Session
         if (parent::beforeSave($insert)) {
             $this->created_at = time();
             if ($this->previewImage) {
-                $this->preview_image = rand(0, 9999) . '-' . time() . '-' . $this->title_url . '.' . $this->previewImage->extension;
+                $this->preview_image = rand(0, 9999) . '-' . time() . '-' . $this->title_url_ru . '.' . $this->previewImage->extension;
                 if (!$this->isNewRecord) {
                     $this->deleteOldImage();
                 }
@@ -45,7 +45,7 @@ class Session extends \common\models\Session
         if ($this->validate()) {
             if ($this->previewImage) {
                 if (Image::thumbnail($this->previewImage
-                    ->tempName, 300, 200, ManipulatorInterface::THUMBNAIL_OUTBOUND)
+                    ->tempName, 600, 450, ManipulatorInterface::THUMBNAIL_OUTBOUND)
                     ->save(Yii::getAlias('@frontend') . '/web/uploads/preview-images/' . $this->preview_image, ['quality' => 80])) {
                     return true;
                 } else {

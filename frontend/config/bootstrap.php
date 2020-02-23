@@ -8,11 +8,16 @@ use common\models\Info;
 Event::on(View::className(), View::EVENT_BEFORE_RENDER, function() {
     $session = Yii::$app->session;
     Yii::$app->language = $session->get('language') ?: 'kz-KZ';
+    $l = 'kz';
+    if (Yii::$app->language === 'ru-RU') {
+        $l = 'ru';
+    }
+
 
     $scrollingText = \common\models\Settings::find()
         ->where(['name' => 'scrolling_text'])
         ->one();
-    Yii::$app->view->params['scrolling_text'] = $scrollingText->content;
+    Yii::$app->view->params['scrolling_text'] = $scrollingText->{'content_' . $l};
 
     $menuItems = Info::find()
         ->orderBy('parent')

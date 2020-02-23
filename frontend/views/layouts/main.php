@@ -3,6 +3,10 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use common\models\Translation;
+use frontend\models\Deputy;
+use frontend\models\Gallery;
+use yii\bootstrap\Carousel;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\assets\AppAsset;
@@ -12,6 +16,16 @@ AppAsset::register($this);
 $scrollingText = $this->params['scrolling_text'];
 $menuItems = $this->params['menuItems'];
 $l = $this->params['language'];
+$deputies = Deputy::find()
+    ->orderBy(['id' => SORT_DESC])
+    ->all();
+$galleries = Gallery::find()
+    ->where(['type' => Gallery::GALLERY])
+    ->orderBy(['id' => SORT_DESC])
+    ->all();
+$translation = Translation::find()
+    ->orderBy(['id' => SORT_DESC])
+    ->one();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -211,8 +225,57 @@ $l = $this->params['language'];
                     <?php foreach ($menuItems['main'] as $item) : ?>
                             <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
                     <?php endforeach; ?>
+                            <?php if ($translation) { ?>
+                            <li><a class="online-translation" href="<?= Url::to(['translation/view', 'id' => $translation->id]); ?>"><?= Yii::t('app', 'Онлайн көрсетілім'); ?></a></li>
+                            <?php } ?>
                         </ul>
                     </div><!--/.nav-collapse -->
+                    <?php if (count($deputies) > 0) { ?>
+                    <div class="carousel-deputies">
+                        <p style="color: #777"><?= Yii::t('app', 'Мәслихат депутаттары'); ?></p>
+                        <?php
+                            $carousel = [];
+                            foreach ($deputies as $key => $deputy) :
+                                $carousel[]  =
+                                    [
+                                        'content' => '<img src="/uploads/deputy-images/'.$deputy->avatar.'" alt="deputy" class="deputy-avatar"/>',
+                                        'caption' => '<p class="deputy-full-name">'.$deputy->{'full_name_' . $l}.'</p><p class="deputy-position">'.$deputy->{'place_' . $l}.'</p>',
+                                    ];
+                            endforeach;
+                            echo Carousel::widget([
+                                'items' => $carousel,
+                                'options' => ['class' => 'carousel slide', 'data-interval' => '12000'],
+                                'controls' => [
+                                    '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
+                                    '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
+                                ]
+                            ]);
+                        ?>
+                    </div>
+                    <?php }?>
+                    <?php if (count($galleries) > 0) { ?>
+                    <div class="carousel-galleries">
+                        <div class="gallery-title">
+                            <p style="color: #777;margin: 0">Галерея</p>
+                            <a href="/gallery/index" class="gallery-link"><?= Yii::t('app', 'Галереяға өту'); ?> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                        </div>
+                        <?php
+                            $g_carousel = [];
+                            foreach ($galleries as $key => $gallery) :
+                                $g_carousel[]  =
+                                    [
+                                        'content' => '<img src="/uploads/gallery-images/small/'.$gallery->image.'" alt="gallery" class="gallery-image"/>',
+                                    ];
+                            endforeach;
+                            echo Carousel::widget([
+                                'items' => $g_carousel,
+                                'options' => ['class' => 'carousel slide', 'data-interval' => '10000'],
+                                'controls' => ['', '']
+                            ]);
+                        ?>
+                    </div>
+                    <?php }?>
+
                 </div>
             </div>
         </div>
@@ -223,8 +286,28 @@ $l = $this->params['language'];
 </div>
 
 <footer class="container text-center">
-    <ul>
-
+    <ul class="row text-left">
+        <li class="col-md-4">
+            <p class="footer-title"><?= Yii::t('app', 'БАЙЛАНЫС'); ?></p>
+            <p>© <?= Yii::t('app', 'АЛМАТЫ ОБЛЫСЫ ЕҢБЕКШІҚАЗАҚ АУДАНДЫҚ МӘСЛИХАТТЫНЫҢ АППАРАТЫ'); ?></p>
+            <p>040402 <?= Yii::t('app', 'Есік қаласы'); ?>,</p>
+            <p><?= Yii::t('app', 'Жамбыл даңғылы, 21 «а»'); ?></p>
+            <p><b>Тел.:</b> <a href="tel:87277572555">8 (72775) 7-25-55</a></p>
+            <p><b>Факс:</b> 8 (7275) 7-25-55</p>
+            <p><a href="mailto:maslihat777@mail.ru">Maslihat777@mail.ru</a></p>
+        </li>
+        <li class="col-md-4">
+            <p class="footer-title"><?= Yii::t('app', 'ҚР ИНТЕРНЕТ-РЕСУРСТАРЫ'); ?></p>
+            <p class="footer-a"><a href="https://www.akorda.kz" target="_blank"><?= Yii::t('app', 'Қазақстан Республикасы Президентінің ресми сайты'); ?></a></p>
+            <p class="footer-a"><a href="https://primeminister.kz" target="_blank"><?= Yii::t('app', 'Қазақстан Республикасының Премьер-Министрінің ресми сайты'); ?></a></p>
+            <p class="footer-a"><a href="http://www.parlam.kz" target="_blank"><?= Yii::t('app', 'Қазақстан Республикасы Парламентінің ресми сайты'); ?></a></p>
+        </li>
+        <li class="col-md-4">
+            <p class="footer-title"><?= Yii::t('app', 'ӘКІМДІКТЕРДІҢ ИНТЕРНЕТ-РЕСУРСТАРЫ'); ?></p>
+            <p class="footer-a"><a href="http://almoblmaslihat.gov.kz" target="_blank"><?= Yii::t('app', 'Алматы облысы мәслихатының ресми сайты'); ?></a></p>
+            <p class="footer-a"><a href="https://www.zhetysu.gov.kz/" target="_blank"><?= Yii::t('app', 'Алматы облысы әкімдігінің ресми сайты'); ?></a></p>
+            <p class="footer-a"><a href="www.enbekshikazah.gov.kz" target="_blank"><?= Yii::t('app', 'Еңбекшіқазақ ауданы әкімдігінің ресми сайты'); ?></a></p>
+        </li>
     </ul>
 </footer>
 

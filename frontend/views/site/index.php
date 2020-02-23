@@ -1,7 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $sliderImages \frontend\models\Slider */
+/* @var $notification \frontend\models\Notification */
+/* @var $article \frontend\models\Article */
+/* @var $infographics \frontend\models\Infographics[] */
 
+use yii\bootstrap\Carousel;
 use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
@@ -10,48 +15,24 @@ $l = $this->params['language'];
 <div class="col-sm-6">
     <div class="row">
         <div class="col-sm-12">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                    <li data-target="#myCarousel" data-slide-to="4"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="/images/slider/1.jpeg" alt="">
-                    </div>
-
-                    <div class="item">
-                        <img src="/images/slider/2.jpeg" alt="">
-                    </div>
-
-                    <div class="item">
-                        <img src="/images/slider/3.jpeg" alt="">
-                    </div>
-
-                    <div class="item">
-                        <img src="/images/slider/4.jpeg" alt="">
-                    </div>
-
-                    <div class="item">
-                        <img src="/images/slider/5.jpeg" alt="">
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">алдыңғы</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">келесі</span>
-                </a>
+            <div class="carousel slide">
+                <?php
+                $carousel = [];
+                foreach ($sliderImages as $key => $image) :
+                    $carousel[]  =
+                        [
+                            'content' => '<img src="/uploads/slider-images/'.$image->image.'" alt="slider" class="deputy-avatar"/>',
+                        ];
+                endforeach;
+                echo Carousel::widget([
+                    'items' => $carousel,
+                    'options' => ['class' => 'carousel slide', 'data-interval' => '5000'],
+                    'controls' => [
+                        '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
+                        '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
+                    ]
+                ]);
+                ?>
             </div>
         </div>
     </div>
@@ -83,4 +64,49 @@ $l = $this->params['language'];
         <p class="text"><?= Yii::t('app', 'Сізді Еңбекшіқазақ аудандық мәслихаттың ресми сайтында қарсы алуға қуаныштымын. Еңбекшіқазақ аудандық мәслихаты Қазақстан Республикасында «Электрондық үкімет» мемлекеттік бағдарламасын қалыптастыру мақсатында, атқарылып жатқан іс-шаралар туралы ақпарат береді.'); ?> </p>
         <p class="text-right"><?= Yii::t('app', 'Құрметпен, Еңбекшіқазақ аудандық мәслихаттың хатшысы'); ?> <br /><strong><?= Yii::t('app', 'Ахметов Бекет Төлегенұлы'); ?></strong></p>
     </div>
+    <?php if ($notification) { ?>
+        <div class="thumbnail">
+            <p class="text-center"><strong><?= Yii::t('app', 'Хабарландыру'); ?>!</strong></p>
+            <?php if ($notification->image !== null) { ?>
+                <img class="image-margin-bottom" src="/uploads/notification-images/<?= $notification->image; ?>" alt="img">
+            <?php } ?>
+            <p class="text"><?= $notification->{'description_' . $l}; ?> </p>
+            <p class="text-right"><strong><?= $notification->created_at ?></strong></p>
+        </div>
+    <?php } ?>
+    <div class="link-by-img">
+        <?php if ($article) { ?>
+        <a href="/article/view?id=<?= $article->id ?>">
+            <img src="/images/25_<?= $l ?>.png" alt="25">
+        </a>
+        <?php } ?>
+        <a href="https://www.akorda.kz/kz/addresses" target="_blank">
+            <img src="/images/zholdau_<?= $l ?>.png" alt="zholdau">
+        </a>
+        <a href="https://open.egov.kz/" target="_blank">
+            <img src="/images/egov_<?= $l ?>.png" alt="egov">
+        </a>
+    </div>
+    <?php if (count($infographics) > 0) { ?>
+        <div class="carousel-galleries thumbnail">
+            <div class="gallery-title">
+                <p style="color: #777;margin: 0">Инфографика</p>
+                <a href="/infographics/index" class="gallery-link"><?= Yii::t('app', 'Инфографикаға өту'); ?> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+            </div>
+            <?php
+            $g_carousel = [];
+            foreach ($infographics as $key => $infographic) :
+                $g_carousel[]  =
+                    [
+                        'content' => '<img src="/uploads/infographics-images/small/'.$infographic->image.'" alt="infographic" class="gallery-image"/>',
+                    ];
+            endforeach;
+            echo Carousel::widget([
+                'items' => $g_carousel,
+                'options' => ['class' => 'carousel slide', 'data-interval' => '9000'],
+                'controls' => ['', '']
+            ]);
+            ?>
+        </div>
+    <?php }?>
 </div>

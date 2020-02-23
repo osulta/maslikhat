@@ -7,7 +7,8 @@ namespace common\models;
  *
  * @property int $id
  * @property string $name
- * @property string $content
+ * @property string $content_kz
+ * @property string $content_ru
  */
 class Settings extends \yii\db\ActiveRecord
 {
@@ -26,7 +27,7 @@ class Settings extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'string', 'max' => 200],
-            [['content'], 'string', 'max' => 500],
+            [['content_kz', 'content_ru'], 'string', 'max' => 500],
         ];
     }
 
@@ -38,7 +39,8 @@ class Settings extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Название',
-            'content' => 'Значение',
+            'content_kz' => 'Значение на казахском',
+            'content_ru' => 'Значение на русском',
         ];
     }
 }

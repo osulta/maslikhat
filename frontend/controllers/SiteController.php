@@ -1,6 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use backend\models\Slider;
+use frontend\models\Article;
+use frontend\models\Infographics;
+use frontend\models\Notification;
 use frontend\models\Session;
 use Yii;
 use yii\web\Controller;
@@ -30,12 +34,37 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $lastNews = Session::find()
+            ->where(['type' => null])
             ->orderBy(['id' => SORT_DESC])
             ->limit(4)
             ->all();
 
+        $sliderImages = Slider::find()
+            ->where(['type' => Slider::SLIDER])
+            ->orderBy(['id' => SORT_DESC])
+            ->all();
+
+        $notification = Notification::find()
+            ->orderBy(['id' => SORT_DESC])
+            ->limit(1)
+            ->one();
+
+        $article = Article::find()
+            ->orderBy(['id' => SORT_DESC])
+            ->where(['type' => \backend\models\Article::ARTICLE])
+            ->one();
+
+        $infographics = Infographics::find()
+            ->orderBy(['id' => SORT_DESC])
+            ->where(['type' => Infographics::INFOGRAPHICS])
+            ->all();
+
         return $this->render('index', [
             'news' => $lastNews,
+            'sliderImages' => $sliderImages,
+            'notification' => $notification,
+            'article' => $article,
+            'infographics' => $infographics
         ]);
     }
 

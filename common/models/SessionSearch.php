@@ -41,7 +41,7 @@ class SessionSearch extends Session
      */
     public function search($params)
     {
-        $query = Session::find();
+        $query = Session::find()->where(['type' => null]);
 
         // add conditions that should always apply here
 
