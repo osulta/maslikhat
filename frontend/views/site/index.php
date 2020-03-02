@@ -3,7 +3,6 @@
 /* @var $this yii\web\View */
 /* @var $sliderImages \frontend\models\Slider */
 /* @var $notification \frontend\models\Notification */
-/* @var $article \frontend\models\Article */
 /* @var $infographics \frontend\models\Infographics[] */
 
 use yii\bootstrap\Carousel;
@@ -70,16 +69,17 @@ $l = $this->params['language'];
             <?php if ($notification->image !== null) { ?>
                 <img class="image-margin-bottom" src="/uploads/notification-images/<?= $notification->image; ?>" alt="img">
             <?php } ?>
-            <p class="text"><?= $notification->{'description_' . $l}; ?> </p>
-            <p class="text-right"><strong><?= $notification->created_at ?></strong></p>
+            <p class="text"><?= mb_substr($notification->{'short_desc_' . $l}, 0, 200, 'UTF-8') . '...'; ?> </p>
+            <div style="display: flex; justify-content: space-between">
+                <p class="text-right"><strong><?= $notification->created_at ?></strong></p>
+                <p><a href="/site/view?id=<?= $notification->id ?>" class="gallery-link"><?= Yii::t('app', 'Толығырақ'); ?> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></p>
+            </div>
         </div>
     <?php } ?>
     <div class="link-by-img">
-        <?php if ($article) { ?>
-        <a href="/article/view?id=<?= $article->id ?>">
+        <a href="/article/index">
             <img src="/images/25_<?= $l ?>.png" alt="25">
         </a>
-        <?php } ?>
         <a href="https://www.akorda.kz/kz/addresses" target="_blank">
             <img src="/images/zholdau_<?= $l ?>.png" alt="zholdau">
         </a>

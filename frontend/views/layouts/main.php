@@ -22,6 +22,7 @@ $deputies = Deputy::find()
 $galleries = Gallery::find()
     ->where(['type' => Gallery::GALLERY])
     ->orderBy(['id' => SORT_DESC])
+    ->limit(5)
     ->all();
 $translation = Translation::find()
     ->orderBy(['id' => SORT_DESC])
@@ -86,10 +87,10 @@ $translation = Translation::find()
                 </ul>
                 <ul class="nav navbar-social navbar-nav navbar-right">
                     <li>
-                        <a href="#"><img class="social-logo" src="../images/vk-logo.png" alt="VK logo"></a>
+                        <a href="https://vk.com/enbekshikazakh.maslihat" target="_blank"><img class="social-logo" src="../images/vk-logo.png" alt="VK logo"></a>
                     </li>
                     <li>
-                        <a href="#"><img class="social-logo" src="../images/instagram-logo.png" alt="Instagram logo"></a>
+                        <a href="https://www.instagram.com/enbekshikazakh.maslihat" target="_blank"><img class="social-logo" src="../images/instagram-logo.png" alt="Instagram logo"></a>
                     </li>
                 </ul>
                 <div class="scrolling-text-block">
@@ -122,9 +123,17 @@ $translation = Translation::find()
                     </div>
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <ul class="nav navbar-nav left-sidebar" id="left-sidebar">
-                            <li><a href="/site/index"><?= Yii::t('app', 'Негізгі бет'); ?></a></li>
                             <li>
-                                <a href="#maslikhat" class="left-sidebar-a"><?= Yii::t('app', 'Мәслихат'); ?></a>
+                                <a href="/site/index" class="menu-flex">
+                                    <img src="/images/menu_icon/1.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Негізгі бет'); ?>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#maslikhat" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/2.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Мәслихат'); ?>
+                                </a>
                                 <div id="maslikhat" class="collapse" >
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['maslikhat'] as $item) : ?>
@@ -134,7 +143,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#kogamdyk-kenes" class="left-sidebar-a"><?= Yii::t('app', 'Қоғамдық кеңес'); ?></a>
+                                <a href="#kogamdyk-kenes" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/3.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Қоғамдық кеңес'); ?>
+                                </a>
                                 <div id="kogamdyk-kenes" class="collapse">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['public_council'] as $item) : ?>
@@ -144,7 +156,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#sessiya" class="left-sidebar-a"><?= Yii::t('app', 'Сессия'); ?></a>
+                                <a href="#sessiya" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/4.png" alt="icon">
+                                    <?= Yii::t('app', 'Сессия'); ?>
+                                </a>
                                 <div class="collapse" id="sessiya">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['session'] as $item) : ?>
@@ -155,7 +170,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#commission" class="left-sidebar-a"><?= Yii::t('app', 'Тұрақты комиссия'); ?></a>
+                                <a href="#commission" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/5.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Тұрақты комиссия'); ?>
+                                </a>
                                 <div class="collapse" id="commission">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['commission'] as $item) : ?>
@@ -165,7 +183,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#requests" class="left-sidebar-a"><?= Yii::t('app', 'Сауалдар'); ?></a>
+                                <a href="#requests" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/6.png" alt="icon">
+                                    <?= Yii::t('app', 'Сауалдар'); ?>
+                                </a>
                                 <div class="collapse" id="requests">
                                     <ul class="nav nav-list">
                                         <?php foreach ($menuItems['requests'] as $item) : ?>
@@ -175,7 +196,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#decisions" class="left-sidebar-a"><?= Yii::t('app', 'Шешімдер'); ?></a>
+                                <a href="#decisions" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/7.png" alt="icon">
+                                    <?= Yii::t('app', 'Шешімдер'); ?>
+                                </a>
                                 <div class="collapse" id="decisions">
                                     <ul class="nav nav-list">
                                         <?php if (isset($menuItems['decisions'])) { ?>
@@ -187,7 +211,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#services" class="left-sidebar-a"><?= Yii::t('app', 'Мемлекеттік қызмет'); ?></a>
+                                <a href="#services" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/8.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Мемлекеттік қызмет'); ?>
+                                </a>
                                 <div class="collapse" id="services">
                                     <ul class="nav nav-list">
                                         <?php if (isset($menuItems['services'])) { ?>
@@ -199,7 +226,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#budget" class="left-sidebar-a"><?= Yii::t('app', 'Бюджет'); ?></a>
+                                <a href="#budget" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/9.png" alt="icon">
+                                    <?= Yii::t('app', 'Бюджет'); ?>
+                                </a>
                                 <div class="collapse" id="budget">
                                     <ul class="nav nav-list">
                                         <?php if (isset($menuItems['budget']) && is_array($menuItems['budget'])) { ?>
@@ -211,7 +241,10 @@ $translation = Translation::find()
                                 </div>
                             </li>
                             <li>
-                                <a href="#election" class="left-sidebar-a"><?= Yii::t('app', 'Сайлау'); ?></a>
+                                <a href="#election" class="left-sidebar-a menu-flex">
+                                    <img src="/images/menu_icon/10.jpg" alt="icon">
+                                    <?= Yii::t('app', 'Сайлау'); ?>
+                                </a>
                                 <div class="collapse" id="election">
                                     <ul class="nav nav-list">
                                         <?php if (isset($menuItems['election']) && is_array($menuItems['election'])) { ?>
@@ -222,11 +255,25 @@ $translation = Translation::find()
                                     </ul>
                                 </div>
                             </li>
-                    <?php foreach ($menuItems['main'] as $item) : ?>
-                            <li><a href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>"><?= $item['title_' . $l]; ?></a></li>
+                    <?php foreach ($menuItems['main'] as $key => $item) : ?>
+                            <li>
+                                <a class="menu-flex" href="<?= Url::to(['info/view', 'id' => $item['id']]); ?>">
+                                    <?php if ($key === 0) { ?>
+                                        <img src="/images/menu_icon/11.png" alt="icon">
+                                    <?php } else { ?>
+                                        <img src="/images/menu_icon/12.jpg" alt="icon">
+                                    <?php } ?>
+                                    <?= $item['title_' . $l]; ?>
+                                </a>
+                            </li>
                     <?php endforeach; ?>
                             <?php if ($translation) { ?>
-                            <li><a class="online-translation" href="<?= Url::to(['translation/view', 'id' => $translation->id]); ?>"><?= Yii::t('app', 'Онлайн көрсетілім'); ?></a></li>
+                            <li>
+                                <a class="menu-flex" href="<?= Url::to(['translation/view', 'id' => $translation->id]); ?>">
+                                    <img src="/images/menu_icon/13.png" alt="icon">
+                                    <?= Yii::t('app', 'Онлайн көрсетілім'); ?>
+                                </a>
+                            </li>
                             <?php } ?>
                         </ul>
                     </div><!--/.nav-collapse -->

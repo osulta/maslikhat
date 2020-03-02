@@ -14,8 +14,10 @@ class m200223_143359_create_notification_table extends Migration
     {
         $this->createTable('{{%notification}}', [
             'id' => $this->primaryKey(),
-            'description_kz' => $this->string(255),
-            'description_ru' => $this->string(255),
+            'short_desc_kz' => $this->string(255),
+            'short_desc_ru' => $this->string(255),
+            'description_kz' => $this->text(),
+            'description_ru' => $this->text(),
             'image' => $this->string(255),
             'created_at' => $this->integer(11),
         ]);

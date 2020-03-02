@@ -2,12 +2,12 @@
 namespace frontend\controllers;
 
 use backend\models\Slider;
-use frontend\models\Article;
 use frontend\models\Infographics;
 use frontend\models\Notification;
 use frontend\models\Session;
 use Yii;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -36,34 +36,29 @@ class SiteController extends Controller
         $lastNews = Session::find()
             ->where(['type' => null])
             ->orderBy(['id' => SORT_DESC])
-            ->limit(4)
+            ->limit(6)
             ->all();
 
         $sliderImages = Slider::find()
             ->where(['type' => Slider::SLIDER])
             ->orderBy(['id' => SORT_DESC])
+            ->limit(5)
             ->all();
 
         $notification = Notification::find()
             ->orderBy(['id' => SORT_DESC])
-            ->limit(1)
-            ->one();
-
-        $article = Article::find()
-            ->orderBy(['id' => SORT_DESC])
-            ->where(['type' => \backend\models\Article::ARTICLE])
             ->one();
 
         $infographics = Infographics::find()
             ->orderBy(['id' => SORT_DESC])
             ->where(['type' => Infographics::INFOGRAPHICS])
+            ->limit(5)
             ->all();
 
         return $this->render('index', [
             'news' => $lastNews,
             'sliderImages' => $sliderImages,
             'notification' => $notification,
-            'article' => $article,
             'infographics' => $infographics
         ]);
     }
@@ -77,4 +72,31 @@ class SiteController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'notification' => $this->findNotificationModel($id),
+        ]);
+    }
+
+    /**
+     * Finds the Session model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Notification the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findNotificationModel($id)
+    {
+        if (($model = Notification::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('Хабарландыру табылмады');
+    }
 }

@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Notification */
@@ -12,9 +14,23 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'description_kz')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'short_desc_kz')->textarea(['maxlength' => true, 'rows' => 5]) ?>
 
-    <?= $form->field($model, 'description_ru')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'short_desc_ru')->textarea(['maxlength' => true, 'rows' => 5]) ?>
+
+    <?= $form->field($model, 'description_kz')->widget(CKEditor::className(),[
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'preset' => 'full',
+            'inline' => false,
+        ]),
+    ]);?>
+
+    <?= $form->field($model, 'description_ru')->widget(CKEditor::className(),[
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
+            'preset' => 'full',
+            'inline' => false,
+        ]),
+    ]);?>
 
     <?= $form->field($model, 'tmpImage')->fileInput() ?>
 

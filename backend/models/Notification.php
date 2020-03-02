@@ -36,7 +36,7 @@ class Notification extends \common\models\Notification
         if ($this->validate()) {
             if ($this->tmpImage) {
                 if (Image::thumbnail($this->tmpImage
-                    ->tempName, 300, 400, ManipulatorInterface::THUMBNAIL_OUTBOUND)
+                    ->tempName, 600, 400, ManipulatorInterface::THUMBNAIL_OUTBOUND)
                     ->save(Yii::getAlias('@frontend') . '/web/uploads/notification-images/' . $this->image, ['quality' => 80])) {
                     return true;
                 } else {

@@ -5,7 +5,7 @@
 
 $this->title = '';
 ?>
-<div class="col-sm-9">
+<div class="col-sm-9 infographics">
     <h3 style="margin-left: 1%">Инфографика</h3>
     <?php
     $items = [];

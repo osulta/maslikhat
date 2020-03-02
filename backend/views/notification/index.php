@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\NotificationSearch */
@@ -22,10 +23,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options' => [ 'style' => 'table-layout:fixed;' ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'description_kz',
+            [
+                'attribute' => 'description_kz',
+                'value' => function ($model) {
+                    return StringHelper::truncate($model->short_desc_kz, 350);
+                },
+                'contentOptions' => [ 'style' => 'width: 90%;' ],
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

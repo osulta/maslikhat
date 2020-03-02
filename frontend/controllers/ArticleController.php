@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 
+use frontend\models\Article;
 use frontend\models\Session;
 use yii\data\Pagination;
 use yii\web\Controller;
@@ -10,6 +11,30 @@ use yii\web\NotFoundHttpException;
 
 class ArticleController extends Controller
 {
+    /**
+     * @return string
+     */
+    public function actionIndex()
+    {
+        $query = Article::find()
+            ->orderBy(['id' => SORT_DESC])
+            ->where(['type' => \backend\models\Article::ARTICLE]);
+        $countQuery = clone $query;
+        $pages = new Pagination([
+            'totalCount' => $countQuery->count(),
+            'pageSize' => 3,
+            'forcePageParam' => false,
+            'pageSizeParam' => false,
+        ]);
+        $articles = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        return $this->render('index', [
+            'articles' => $articles,
+            'pages' => $pages,
+        ]);
+    }
 
     public function actionView($id)
     {

@@ -18,7 +18,7 @@ class NotificationSearch extends Notification
     {
         return [
             [['id', 'created_at'], 'integer'],
-            [['description_kz', 'description_ru', 'image'], 'safe'],
+            [['short_desc_kz', 'short_desc_ru', 'image'], 'safe'],
         ];
     }
 
@@ -62,8 +62,8 @@ class NotificationSearch extends Notification
             'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'description_kz', $this->description_kz])
-            ->andFilterWhere(['like', 'description_ru', $this->description_ru])
+        $query->andFilterWhere(['like', 'short_desc_kz', $this->short_desc_kz])
+            ->andFilterWhere(['like', 'short_desc_ru', $this->short_desc_ru])
             ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;

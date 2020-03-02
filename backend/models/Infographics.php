@@ -38,11 +38,11 @@ class Infographics extends \common\models\ImageWithDescription
         if ($this->validate()) {
             if ($this->tmpImage) {
                 if (Image::thumbnail($this->tmpImage
-                    ->tempName, 900, 650, ManipulatorInterface::THUMBNAIL_OUTBOUND)
-                    ->save(Yii::getAlias('@frontend') . '/web/uploads/infographics-images/' . $this->image, ['quality' => 80])
+                        ->tempName, 1200, 2000, ManipulatorInterface::THUMBNAIL_OUTBOUND)
+                        ->save(Yii::getAlias('@frontend') . '/web/uploads/infographics-images/' . $this->image, ['quality' => 80])
                     &&
                     Image::thumbnail($this->tmpImage
-                        ->tempName, 260, 180, ManipulatorInterface::THUMBNAIL_OUTBOUND)
+                        ->tempName, 260, 350, ManipulatorInterface::THUMBNAIL_OUTBOUND)
                         ->save(Yii::getAlias('@frontend') . '/web/uploads/infographics-images/small/' . $this->image, ['quality' => 80])
                 ) {
                     return true;
